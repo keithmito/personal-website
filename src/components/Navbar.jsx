@@ -11,6 +11,7 @@ const Navbar = () => {
         { name: 'Home', path: '/' },
         { name: 'About', path: '/about' },
         { name: 'Portfolio', path: '/portfolio' },
+        { name: 'Gallery', path: '/gallery' },
         { name: 'Contact', path: '/contact' },
     ];
 
@@ -65,8 +66,8 @@ const Navbar = () => {
                                     to={link.path}
                                     onClick={() => setIsOpen(false)}
                                     className={`block px-3 py-2 rounded-md text-base font-medium ${location.pathname === link.path
-                                            ? 'text-primary bg-primary/10'
-                                            : 'text-gray-400 hover:text-white hover:bg-white/5'
+                                        ? 'text-primary bg-primary/10'
+                                        : 'text-gray-400 hover:text-white hover:bg-white/5'
                                         }`}
                                 >
                                     {link.name}

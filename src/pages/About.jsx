@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { BookOpen, Award, Cog, Users } from 'lucide-react';
+import { BookOpen, Award, Cog, Users, Briefcase } from 'lucide-react';
 
 const About = () => {
     const skills = [
@@ -18,13 +18,13 @@ const About = () => {
             degree: "Bachelor of Science in Information Technology",
             school: "The Cooperative University of Kenya",
             year: "2019 - 2023",
-            note: "Second Class Upper"
+            // note: "Second Class Upper"
         },
         {
             degree: "Kenya Certificate of Secondary Education (KCSE)",
             school: "Starehe Boys Centre and School",
             year: "2015 - 2018",
-            note: "Grade: B-"
+            // note: "Grade: B-"
         }
     ];
 
@@ -81,7 +81,7 @@ const About = () => {
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
                     {/* Certifications */}
                     <div className="glass-card p-8">
                         <div className="flex items-center mb-6">
@@ -115,6 +115,64 @@ const About = () => {
                                 Chairperson at Techub Club (2018)
                             </li>
                         </ul>
+                    </div>
+                </div>
+
+                {/* Experience Section */}
+                <div className="glass-card p-8 mt-16">
+                    <div className="flex items-center mb-8">
+                        <Briefcase className="w-6 h-6 text-green-500 mr-3" />
+                        <h2 className="text-2xl font-bold">Professional Experience</h2>
+                    </div>
+                    <div className="space-y-12">
+                        {[
+                            {
+                                role: "Credit Assistant",
+                                company: "MWALIMU NATIONAL DT SACCO",
+                                period: "Sep 2025 - Present",
+                                location: "Kisii, Kisii County, Kenya",
+                                description: "Full-time role."
+                            },
+                            {
+                                role: "Co-Founder/ Lead Technician",
+                                company: "Power Computing Systems",
+                                period: "Feb 2024 - Present",
+                                location: "Self-employed",
+                                description: "Driving technical solutions and business operations."
+                            },
+                            {
+                                role: "Information Technology Officer",
+                                company: "Chosen Generation Sacco",
+                                period: "Dec 2023 - Jun 2024",
+                                location: "Kiserian, Kajiado County, Kenya",
+                                description: "Managed IT infrastructure and support."
+                            },
+                            {
+                                role: "Student Intern",
+                                company: "Spire Bank Kenya",
+                                period: "Jun 2022 - Sep 2022",
+                                location: "Nairobi County, Kenya",
+                                description: "Help Desk Support, IT and related skills."
+                            },
+                            {
+                                role: "Volunteer",
+                                company: "Community Service", // Placeholder
+                                period: "Apr 2017 & Aug 2017",
+                                location: "Kenya",
+                                description: "Volunteered during April and August of 2017."
+                            }
+                        ].map((job, index) => (
+                            <div key={index} className="relative pl-8 border-l-2 border-white/10 last:border-0">
+                                <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-dark border-2 border-green-500"></div>
+                                <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
+                                    <h3 className="text-xl font-bold text-white">{job.role}</h3>
+                                    <span className="text-sm text-green-400 font-mono bg-green-500/10 px-2 py-1 rounded">{job.period}</span>
+                                </div>
+                                <p className="text-lg text-gray-300 mb-1">{job.company}</p>
+                                <p className="text-sm text-gray-500 mb-2">{job.location}</p>
+                                <p className="text-gray-400 leading-relaxed">{job.description}</p>
+                            </div>
+                        ))}
                     </div>
                 </div>
 
