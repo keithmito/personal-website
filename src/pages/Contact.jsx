@@ -91,15 +91,16 @@ const Contact = () => {
                     {/* Functional Form */}
                     <div className="glass-card p-8">
                         <h3 className="text-xl font-bold mb-6">Send me a message</h3>
-                        <form className="space-y-4" onSubmit={handleSubmit}>
+                        {console.log("Form State:", state)}
+                        <form className="space-y-4" onSubmit={handleSubmit} autoComplete="off">
                             <div>
                                 <label htmlFor="name" className="block text-sm font-medium text-gray-400 mb-1">Name</label>
                                 <input
                                     id="name"
                                     type="text"
                                     name="name"
+                                    autoComplete="off"
                                     className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-white"
-                                    placeholder="John Doe"
                                     required
                                 />
                                 <ValidationError prefix="Name" field="name" errors={state.errors} className="text-red-500 text-xs mt-1" />
@@ -110,8 +111,8 @@ const Contact = () => {
                                     id="email"
                                     type="email"
                                     name="email"
+                                    autoComplete="off"
                                     className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-white"
-                                    placeholder="john@example.com"
                                     required
                                 />
                                 <ValidationError prefix="Email" field="email" errors={state.errors} className="text-red-500 text-xs mt-1" />
@@ -122,8 +123,8 @@ const Contact = () => {
                                     id="message"
                                     name="message"
                                     rows={4}
+                                    autoComplete="off"
                                     className="w-full bg-dark/50 border border-white/10 rounded-lg px-4 py-3 focus:outline-none focus:border-primary transition-colors text-white"
-                                    placeholder="Hello..."
                                     required
                                 />
                                 <ValidationError prefix="Message" field="message" errors={state.errors} className="text-red-500 text-xs mt-1" />
@@ -136,7 +137,12 @@ const Contact = () => {
                                 {state.submitting ? 'Sending...' : 'Send Message'}
                                 {!state.submitting && <Send className="ml-2 w-4 h-4" />}
                             </button>
-                            {state.errors && <p className="text-red-500 text-sm text-center mt-2">Something went wrong. Please try again.</p>}
+                            {state.errors && (
+                                <div className="text-red-500 text-sm text-center mt-2">
+                                    <p>Something went wrong. Please try again.</p>
+                                    {console.error("Form Errors:", state.errors)}
+                                </div>
+                            )}
                         </form>
                     </div>
 
